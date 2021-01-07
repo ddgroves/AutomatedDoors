@@ -20,8 +20,8 @@ namespace AutomatedDoors
         public override void Entry(IModHelper helper)
         {
             _config = helper.ReadConfig<AutomatedDoorsConfig>();
-            TimeEvents.AfterDayStarted += Events_NewDay;
-            GameEvents.OneSecondTick += Events_OneSecondTick;
+            helper.Events.GameLoop.DayStarted += Events_NewDay;
+            helper.Events.GameLoop.OneSecondUpdateTicked += Events_OneSecondTick;
         }
 
 
